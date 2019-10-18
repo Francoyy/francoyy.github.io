@@ -22,10 +22,11 @@
 有鑑於此，決策的過程中，執政者能少點政治盤算、真正著眼公眾利益，並非只是為獲取選票、而任其政策搖擺，這才能找回「尊重民意」的民主價值。
 </div>
 <br/>
-<input type="button" id="convertBtn" value="convert to simplified"/>
+<input type="button" id="convertBtn" value="簡"/>
 </body>
 <script>
 	var status = "traditional";
+	var next = "繁";
 	var convertBtn = document.getElementById("convertBtn");
 	convertBtn.addEventListener("click", convert);
 
@@ -34,13 +35,15 @@
 		var freetext = document.getElementById("freetext");
 		var result;
 
-		convertBtn.setAttribute("value", "convert to " + status);
+		convertBtn.setAttribute("value", next);
 		if (status === "simplified") {
 			result = $.s2t(articleText.textContent);
 			status = "traditional";
+			next = "簡";
 		} else {
 			result = $.t2s(articleText.textContent);
-			status = "simplified"
+			status = "simplified";
+			next = "繁";
 		}
 		articleText.textContent = result;
 	
