@@ -2,9 +2,13 @@
 <html>
 <body>
   <script>
-    // This code will be executed in the context of the iframe
-    const remoteCode = `console.log("Hello from remote code!");`;
-    window.parent.postMessage(remoteCode, '*');
+    // The remote code receives a number and performs an operation (e.g., doubling the number)
+    function operateOnNumber(number) {
+      return number * 2;
+    }
+
+    // Send the function back to the sandbox
+    window.parent.postMessage(operateOnNumber.toString(), '*');
   </script>
 </body>
 </html>
