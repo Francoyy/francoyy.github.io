@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    // This code will be executed in the context of the iframe
+    const remoteCode = `console.log("Hello from remote code!");`;
+    window.parent.postMessage(remoteCode, '*');
+  </script>
+</body>
+</html>
