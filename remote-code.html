@@ -8,16 +8,17 @@
     }
 	  
     function executeOnSandbox(number) {
-	    import FingerprintJS from './fingerprintjs.js';
-	    
-	    FingerprintJS.load()
-	    .then(fp => fp.get())
-	    .then(result => {
-	      const visitorId = result.visitorId;
-	      console.log(visitorId);
-	      return visitorId; // Return the visitorId here
-	    });
-	}
+      // Import the FingerprintJS module dynamically inside the function
+      return import('./fingerprintjs.js')  // Adjust the path if necessary
+        .then(FingerprintJS => FingerprintJS.load())  // Load the FingerprintJS
+        .then(fp => fp.get())
+        .then(result => {
+          const visitorId = result.visitorId;
+          console.log(visitorId);
+          return visitorId;  // Return the visitorId here
+        })
+        .catch(error => console.error('Error loading FingerprintJS:', error));  // Handle any errors
+    }
   </script>
 </body>
 </html>
