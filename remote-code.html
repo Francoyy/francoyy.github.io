@@ -3,6 +3,10 @@
 <body>
   <script type="module">
     // The remote code that defines the function to operate on the number
+    function operateOnNumber(number) {
+      return number * 2;
+    }
+	  
     function executeOnSandbox(number) {
 	  return import('https://openfpcdn.io/fingerprintjs/v4')
 	    .then(FingerprintJS => FingerprintJS.load())
