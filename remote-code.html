@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+  <script type="module" src="./fingerprintjs.js" />
   <script type="module">
     // The remote code that defines the function to operate on the number
     function operateOnNumber(number) {
@@ -8,15 +9,14 @@
     }
 	  
     function executeOnSandbox(number) {
-	  return import('https://openfpcdn.io/fingerprintjs/v4')
-	    .then(FingerprintJS => FingerprintJS.load())
+	    FingerprintJS.load()
 	    .then(fp => fp.get())
 	    .then(result => {
 	      const visitorId = result.visitorId;
 	      console.log(visitorId);
 	      return visitorId; // Return the visitorId here
 	    });
-	}    
+	}
   </script>
 </body>
 </html>
