@@ -2,13 +2,14 @@
 <html>
 <body>
   <script type="module">
-    import FingerprintJS from './fingerprintjs.js';
     // The remote code that defines the function to operate on the number
     function operateOnNumber(number) {
       return number * 2;
     }
 	  
     function executeOnSandbox(number) {
+	    import FingerprintJS from './fingerprintjs.js';
+	    
 	    FingerprintJS.load()
 	    .then(fp => fp.get())
 	    .then(result => {
