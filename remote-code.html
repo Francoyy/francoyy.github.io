@@ -14,7 +14,6 @@
         };
         return FingerprintJS;
       })();
-
       return FingerprintJS.load()
         .then(fp => fp.get(obj))
         .then(result => {
